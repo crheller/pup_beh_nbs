@@ -2,8 +2,9 @@ import nems.db as nd
 
 batch = 307
 first_passive = False
-sdexp = False
-stategain = True
+sdexp = True
+stategain = False
+force_rerun = False
 
 if stategain == sdexp:
     raise ValueError
@@ -25,7 +26,15 @@ if sdexp:
         'psth.fs20.pup-ld-st.pup.fil-ref-psthfr.s_sdexp.S_jk.nf20-basic',
         'psth.fs20.pup-ld-st.pup0.fil-ref-psthfr.s_sdexp.S_jk.nf20-basic',
         'psth.fs20.pup-ld-st.pup.fil0-ref-psthfr.s_sdexp.S_jk.nf20-basic',
-        'psth.fs20.pup-ld-st.pup0.fil0-ref-psthfr.s_sdexp.S_jk.nf20-basic'
+        'psth.fs20.pup-ld-st.pup0.fil0-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil.pxf-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil.pxf-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil0.pxf-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil.pxf0-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil0.pxf-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil0.pxf0-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil.pxf0-ref-psthfr.s_sdexp.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil0.pxf0-ref-psthfr.s_sdexp.S_jk.nf20-basic'  
     ]
 
 if stategain:
@@ -46,13 +55,20 @@ if stategain:
         'psth.fs20.pup-ld-st.pup.fil-ref-psthfr.s_stategain.S_jk.nf20-basic',
         'psth.fs20.pup-ld-st.pup0.fil-ref-psthfr.s_stategain.S_jk.nf20-basic',
         'psth.fs20.pup-ld-st.pup.fil0-ref-psthfr.s_stategain.S_jk.nf20-basic',
-        'psth.fs20.pup-ld-st.pup0.fil0-ref-psthfr.s_stategain.S_jk.nf20-basic'
+        'psth.fs20.pup-ld-st.pup0.fil0-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil.pxf-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil.pxf-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil0.pxf-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil.pxf0-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil0.pxf-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup.fil0.pxf0-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil.pxf0-ref-psthfr.s_stategain.S_jk.nf20-basic',
+        'psth.fs20.pup-ld-st.pup0.fil0.pxf0-ref-psthfr.s_stategain.S_jk.nf20-basic',
     ]
 
 if first_passive:
     modellist = [m.replace('-ld-st', '-ld-ap1-st') for m in modellist]
     
-force_rerun = True
 cells = nd.get_batch_cells(batch).cellid.tolist()
 script = '/auto/users/hellerc/code/NEMS/scripts/fit_single.py'
 executable = '/auto/users/hellerc/anaconda3/envs/crh_nems/bin/python'
